@@ -1,0 +1,55 @@
+<?xml version="1.0"?>
+<flowgorithm fileversion="4.2">
+    <attributes>
+        <attribute name="name" value="soal5"/>
+        <attribute name="authors" value="LENOVO"/>
+        <attribute name="about" value=""/>
+        <attribute name="saved" value="2025-12-17 04:17:54 PM"/>
+        <attribute name="created" value="TEVOT1ZPO0xBUFRPUC1FOUJVTEIwSzsyMDI1LTEyLTE3OzAzOjM0OjQwIFBNOzI3OTY="/>
+        <attribute name="edited" value="TEVOT1ZPO0xBUFRPUC1FOUJVTEIwSzsyMDI1LTEyLTE3OzA0OjE3OjU0IFBNOzE7MjkxMQ=="/>
+    </attributes>
+    <function name="Main" type="None" variable="">
+        <parameters/>
+        <body>
+            <declare name="jumlahData, i, gaji, dataLain, totalLolos, lolos" type="Integer" array="False" size=""/>
+            <declare name="ipk" type="Real" array="False" size=""/>
+            <declare name="nama" type="String" array="False" size=""/>
+            <declare name="status" type="Boolean" array="False" size=""/>
+            <input variable="jumlahData"/>
+            <for variable="i" start="1" end="jumlahData" direction="inc" step="1">
+                <input variable="nama"/>
+                <input variable="ipk"/>
+                <input variable="gaji"/>
+                <input variable="dataLain"/>
+                <assign variable="status" expression="cekkelulusan(ipk,gaji)"/>
+                <if expression="status">
+                    <then>
+                        <output expression="nama&amp;&quot;-&gt; Lolos&quot;" newline="True"/>
+                    </then>
+                    <else>
+                        <output expression="nama&amp;&quot;-&gt; Tidak Lolos&quot;" newline="True"/>
+                    </else>
+                </if>
+            </for>
+            <assign variable="totalLolos" expression="jumlahData - dataLain"/>
+            <output expression="&quot;Total Lolos :&quot; &amp;totalLolos" newline="True"/>
+        </body>
+    </function>
+    <function name="CekKelulusan" type="Boolean" variable="hasil">
+        <parameters>
+            <parameter name="nilaiIpk" type="Real" array="False"/>
+            <parameter name="penghasilan" type="Integer" array="False"/>
+        </parameters>
+        <body>
+            <declare name="hasil" type="Boolean" array="False" size=""/>
+            <if expression="nilaiIpk &gt;= 3.0 &amp;&amp; penghasilan &lt;= 3000000">
+                <then>
+                    <assign variable="hasil" expression="true"/>
+                </then>
+                <else>
+                    <assign variable="hasil" expression="false"/>
+                </else>
+            </if>
+        </body>
+    </function>
+</flowgorithm>
